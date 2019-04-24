@@ -2,6 +2,7 @@
 OBJECT = collection of key-valued pairs that also store values
 - object indexes can be anything (versus arrays that start at zero)
 
+OBJECT METHODS = action you perform on a value
 */
 
 let cat = { 
@@ -48,7 +49,36 @@ console.log(`\nACCESS ALL IN A FOR LOOP USING KEYS ARRAY INDEX`);
 for (let keys = Object.keys(cat), i = 0; i < keys.length; i++)
     console.log(cat[keys[i]]);
 
-
 // Object.entries
 
 // Object.values
+
+
+console.log('\nMAKE OWN METHOD');
+// make a key hold a function instead of a primative type var
+let me = {
+    first: 'Neal',
+    last: 'Alan',
+    fullName: function() {
+        console.log(this.first + " " + this.last)
+    },
+    fullNamePlus: function(middle) {
+        return this.first + " " + middle + " " + this.last;
+    }
+}
+me.fullName();
+console.log(me.fullNamePlus("345345"));
+
+let calculator = {
+    total: 0,
+    plus: function(num) {
+       return this.total += num;
+    },
+    minus: function(num) {
+        return this.total -= num;
+    }
+}
+calculator.plus(5);
+calculator.plus(5);
+console.log(calculator.total);
+
