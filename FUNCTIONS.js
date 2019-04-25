@@ -64,3 +64,41 @@ bridges.forEach(outputWithIdx);
 
 
 // Composition / Piping in functional programming
+
+
+// RETURNING FUNCTIONS
+console.log('\nRETURNING FUNCTIONS:');
+function greetMe() { console.log('Hi'); }
+function getGreeter() { return greetMe; }
+// if we return greetMe() it will return the return of greetMe = undefined
+//   leading to a TypeError
+let greeter = getGreeter();
+console.log(typeof greeter);
+console.log(greeter);
+greeter();
+// a much easier solution is to return an ANON FUNCTION
+function getGreeter2() {
+    return function(name) {
+        console.log('Hi again', name);
+    }
+}
+let greeter2 = getGreeter2();
+greeter2('Neal');
+
+// CLOSURE - inner function can STILL access values defined in outer function 
+//   after the out function is finished running
+//   this is because the value is being used so it is kept
+// note the variable created are accessible in the scope of the function
+console.log('\nCLOSURE');
+function getGreeter3(name1) { 
+    console.log('i am', name1);
+    return function(name2) {
+        console.log('Hi',name2 + ', i am',name1);
+    }
+}
+// set name1 in getGreeter3
+let introduceNeal = getGreeter3('Neal');
+// introduceNeal is now the returned function
+introduceNeal('Bob');
+
+
