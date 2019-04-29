@@ -32,8 +32,10 @@ countdown3(5);
 // FACTORIAL EXAMPLE:  3! === 6 (3 * 2 * 1)
 
 function factorial(num) {
+    // base case
     if (num < 1) return 0;
     if (num === 1) return 1;
+    // recurse & return build up
     let result = num * factorial(num - 1);
     console.log(num, result);
     return result;
