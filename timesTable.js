@@ -7,10 +7,7 @@ number passed in.
 */
 
 function timesTable(number) {
-    //number--;
-    return function(number2) {
-        return number * number2;
-    }
+    return number2 => number * number2;
 }
 
 let ninesTable = timesTable(9);
@@ -18,3 +15,4 @@ console.log(ninesTable(8));    // => 72
 
 let twelvesTable = timesTable(12);
 console.log(twelvesTable(100));    // => 1200
+
