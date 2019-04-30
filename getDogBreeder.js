@@ -18,7 +18,7 @@ function getDogBreeder (setName, setAge) {
 
         if (typeof inputName === 'number') {
             inputAge = inputName;
-            inputName = 'Steve';
+            inputName = 'Rufus';
         }
         return {name: inputName, age: inputAge};
     }
