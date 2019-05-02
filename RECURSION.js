@@ -46,3 +46,46 @@ console.log(factorial(10));
 // Start with the base case or you can't sole it recursively
 //   test with the simpliest possible input
 //   think about what thing should a function return
+
+
+// 
+console.log('\nNESTED ARRAYS')
+let arrayA = [1,[2,3]];
+
+function logsAnArray (array) {
+
+    for (let i = 0; i < array.length; i++) {
+        let element = array[i];
+
+        if (Array.isArray(element)) logsAnArray(element);
+        else console.log(element);
+    }
+}
+logsAnArray(arrayA);
+
+console.log('\nNESTED OBJECTS:')
+// This works fine without using recursion
+//  BUT if the next key is for an object, you can't add an object to sum!
+function sumVals (obj) {
+    let sum = 0;
+    for (let key in obj) {
+        let value = obj[key];
+        sum += value;
+    }
+    return sum;
+}
+console.log(sumVals({a: 10, b: 20}));
+// ADD RECURSION and you can handle any Object value that's another object
+function sumVals2 (obj) {
+    let sum = 0;
+    for (let key in obj) {
+        let value = obj[key];
+        if (typeof value === 'object') {
+            sum += sumVals2(value);
+        } else {
+            sum += value;
+        }
+    }
+    return sum;
+}
+console.log(sumVals2({a: 10, b: {'1': 90, '2': 11, '3': {default: -111}}}));
