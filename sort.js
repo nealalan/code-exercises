@@ -14,11 +14,10 @@ const sort = (inputArray) => {
                 currentItem.index = i;
             }
         }
-        // push the lowest to the outputArray
+        // push the lowest to the outputArray and remove from the inputArray
         inputArray.splice(currentItem.index, 1);
         outputArray.push(currentItem.lowest);
     }
-
     return outputArray;
 }
 
