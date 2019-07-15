@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 // NEAL DREHER 2019-07-13
 /* eslint-disable no-unused-vars */
 /*
